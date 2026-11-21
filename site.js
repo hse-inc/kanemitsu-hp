@@ -40,10 +40,23 @@
   const fvImgs = [...document.querySelectorAll('.fv__img')];
   const fvGuide = document.querySelector('.fv__guide');
   const fvFlash = document.querySelector('.fv__flash');
-  const setGuide = (img) => { fvGuide.style.setProperty('--gx', img.style.getPropertyValue('--gx')); fvGuide.style.setProperty('--gy', img.style.getPropertyValue('--gy')); };
+  const setGuide = (img) => {
+    const fr = img.parentElement, W = fr.offsetWidth, H = fr.offsetHeight;
+    const bw = img.offsetWidth, bh = img.offsetHeight, bl = img.offsetLeft, bt = img.offsetTop;
+    const k = Math.max(bw / img.naturalWidth, bh / img.naturalHeight) || 1;
+    const rw = img.naturalWidth * k, rh = img.naturalHeight * k;
+    const [px, py] = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+    const cs = getComputedStyle(img), fx = parseFloat(cs.getPropertyValue('--fx')) / 100, fy = parseFloat(cs.getPropertyValue('--fy')) / 100;
+    const s = 1.03, x = (bw - rw) * px + rw * fx, y = (bh - rh) * py + rh * fy;
+    fvGuide.style.setProperty('--gx', ((bl + bw / 2 + (x - bw / 2) * s) / W * 100).toFixed(2) + '%');
+    fvGuide.style.setProperty('--gy', ((bt + bh / 2 + (y - bh / 2) * s) / H * 100).toFixed(2) + '%');
+  };
+  let fvCur = 0;
   const fvCards = [...document.querySelectorAll('.fv__card-ph')].map((c) => [...c.querySelectorAll('.fv__sub')]);
   if (fvImgs.length > 1 && fvGuide && fvFlash) {
-    setGuide(fvImgs[0]);
+    const fitGuide = () => setGuide(fvImgs[fvCur]);
+    if (fvImgs[0].complete) fitGuide(); else fvImgs[0].addEventListener('load', fitGuide);
+    addEventListener('resize', fitGuide);
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       let n = 0;
       setInterval(() => {
@@ -52,7 +65,7 @@
           fvImgs[n].classList.remove('is-on'); fvCards.forEach((c) => c[n % c.length].classList.remove('is-on'));
           n = (n + 1) % fvImgs.length;
           fvImgs[n].classList.add('is-on'); fvCards.forEach((c) => c[n % c.length].classList.add('is-on'));
-          setGuide(fvImgs[n]);
+          fvCur = n; setGuide(fvImgs[n]);
         }, 130);
       }, 4000);
     }

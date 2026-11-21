@@ -69,6 +69,7 @@
 @media (max-width: 959px) {
   .fv { height: max(100svh, 640px, calc(170vw + 80px)); }
   .fv__photo { left: -14vw; top: -8vw; width: 118vw; height: 132vw; }
+  .fv__img { object-position: var(--ox, 50%) 50%; }
   .fv__guide { width: 34%; }
   .fv__card { padding: 0 0 4vw; background: transparent; border: 5px solid var(--c-base); border-bottom-width: 0; box-shadow: none; }
   .fv__card::after { content: ""; position: absolute; left: -6px; right: -6px; bottom: 0; height: 16%; background: var(--c-base); }
@@ -172,7 +173,6 @@
 .footer--w .footer__nav li { display: flex; align-items: center; gap: 8px; }
 .footer--w .footer__nav li::before { content: ""; width: 4px; height: 4px; background: var(--c-sub); }
 .footer__end { display: grid; gap: var(--sp-b); padding-bottom: var(--sp-b); }
-.footer__catch { font-weight: 500; font-size: clamp(26px, 3.4vw, 48px); line-height: 1.4; }
 .footer--w .footer__copy { padding-block: 0; color: var(--c-ink-soft); }
 @media (min-width: 960px) {
   .footer__end { grid-template-columns: 1fr auto; align-items: end; }
