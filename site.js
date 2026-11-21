@@ -79,3 +79,15 @@
   }), { rootMargin: '0px 0px -10% 0px' });
   document.querySelectorAll('.hd').forEach((el) => hdIo.observe(el));
 })();
+
+const ld = document.querySelector('.ld');
+if (ld && document.documentElement.classList.contains('is-ld')) {
+  const ldEnd = () => {
+    if (ld.classList.contains('is-out')) return;
+    ld.classList.add('is-out');
+    document.documentElement.classList.remove('is-ld');
+    setTimeout(() => ld.remove(), 700);
+  };
+  ld.querySelector('.ld__skip').addEventListener('click', ldEnd);
+  setTimeout(ldEnd, 5900);
+}
