@@ -20,12 +20,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Krona+One&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
-<link rel="icon" href="../assets/favicon.ico?v=20261121214751" sizes="any">
-<link rel="icon" href="../assets/favicon-32.png?v=20261121214751" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=20261121214751">
-<link rel="stylesheet" href="../tokens.css?v=20261121214751">
-<link rel="stylesheet" href="../base.css?v=20261121214751">
-<link rel="stylesheet" href="../style.css?v=20261121214751">
+<link rel="icon" href="../assets/favicon.ico?v=20261122221515" sizes="any">
+<link rel="icon" href="../assets/favicon-32.png?v=20261122221515" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=20261122221515">
+<link rel="stylesheet" href="../tokens.css?v=20261122221515">
+<link rel="stylesheet" href="../base.css?v=20261122221515">
+<link rel="stylesheet" href="../style.css?v=20261122221515">
 <script>
 /* ローディング：TOP を開いた初回（同じタブの中で1回）だけ。動きを減らす設定・自動の検査では出さない（?ld=1 で必ず出す）。
    キットの検査用ブラウザは普通のブラウザのふりをするので、窓が画面より狭い・iPhone を名乗るのに Chrome の印がある、で見分ける */
@@ -54,8 +54,8 @@ try {
 
 <header class="header">
   <a class="logo" href="../" aria-label="株式会社カネミツ設備 トップへ">
-    <img class="logo__w" src="../assets/logo_w.png?v=20261121214751" alt="" width="2502" height="243">
-    <img class="logo__c" src="../assets/logo.png?v=20261121214751" alt="" width="2502" height="243">
+    <img class="logo__w" src="../assets/logo_w.png?v=20261122221515" alt="" width="2502" height="243">
+    <img class="logo__c" src="../assets/logo.png?v=20261122221515" alt="" width="2502" height="243">
   </a>
   <nav class="nav" aria-label="メインメニュー">
     <ul class="nav__list">
@@ -84,14 +84,43 @@ try {
 </div>
 
 <main>
-    <section class="sec" data-todo data-page-todo><div class="wrap"><p>〔このページは TOP の OK のあとに作ります〕</p></div></section>
+    <section class="ph">
+    <div class="ph__deco" aria-hidden="true"><span class="pipe"><i class="p1"></i><i class="p2"></i><b class="j1"></b></span></div>
+    <figure class="ph__photo" data-bleed><img src="../assets/sub/contact.webp?v=20261122221515" alt="" width="1400" height="1050" style="--oy: 70%"></figure>
+    <div class="wrap ph__in">
+      <h1 class="ph__ttl"><span class="ph__en" aria-hidden="true"><span class="mask" style="--m: 0"><span>CONTACT</span></span></span><span class="ph__ja">お問い合わせ</span></h1>
+      <ol class="crumb ph__crumb"><li><a href="../">トップ</a></li><li>お問い合わせ</li></ol>
+    </div>
+  </section>
+
+  <section class="sec cf">
+    <div class="wrap cf__in">
+      <div class="cf__side">
+        <div class="txt cf__intro">
+          <p class="cf__hi rv">お問い合わせご希望の<wbr>お客様へ</p>
+          <p class="rv">株式会社カネミツ設備の<wbr>お問い合わせは<wbr>お電話、<wbr>もしくは<wbr>以下の<wbr>お問い合わせ<wbr>フォームに<wbr>ご入力ください。<br>また、<wbr>お見積・ご相談に<wbr>関しても<wbr>下記お問い合わせ<wbr>フォームより<wbr>ご連絡いただけますと<wbr>幸いです。</p>
+        </div>
+        <a class="cf__tel rv" href="tel:0494220934"><span class="cf__tel-label">TEL</span><span class="cf__tel-num nb">0494-22-0934</span></a>
+      </div>
+      <form class="form cf__form rv" data-todo>
+        <label class="field"><span class="field__label">お問い合わせの<wbr>種類<span class="field__req">必須</span></span>
+          <select class="field__input" name="inquiry-type" required><option value="">選択してください</option><option>サービスについて</option><option>お見積もりについて</option><option>採用について</option><option>取材・広報・協業に関するお問い合わせ</option><option>その他</option></select></label>
+        <label class="field"><span class="field__label">氏名<wbr>（または<wbr>会社名）<span class="field__req">必須</span></span><input class="field__input" type="text" name="your-name" autocomplete="name" required></label>
+        <label class="field"><span class="field__label">メールアドレス<span class="field__req">必須</span></span><input class="field__input" type="email" name="your-email" autocomplete="email" required></label>
+        <label class="field"><span class="field__label">電話番号<span class="field__opt">任意</span></span><input class="field__input" type="tel" name="your-tel" autocomplete="tel"></label>
+        <label class="field"><span class="field__label">お問い合わせ<wbr>内容<span class="field__req">必須</span></span><textarea class="field__input" name="your-message" required></textarea></label>
+        <label class="form__agree"><input type="checkbox" name="agree" required>個人情報の<wbr>取り扱いに<wbr>同意する</label>
+        <button class="btn btn--sq form__send" type="submit">送信する<span class="btn__arw"><svg viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></button>
+      </form>
+    </div>
+  </section>
 
 </main>
 
 <footer class="footer footer--w">
   <div class="wrap footer__top">
     <div class="footer__co">
-      <a class="footer__logo" href="../" aria-label="株式会社カネミツ設備 トップへ"><img src="../assets/logo.png?v=20261121214751" alt="" width="2502" height="243" loading="lazy"></a>
+      <a class="footer__logo" href="../" aria-label="株式会社カネミツ設備 トップへ"><img src="../assets/logo.png?v=20261122221515" alt="" width="2502" height="243" loading="lazy"></a>
       <dl class="footer__info">
         <dt>ADDRESS</dt><dd><span class="nb">〒368-0032</span><br>埼玉県秩父市熊木町23-2</dd>
         <dt>TEL</dt><dd><a class="nb" href="tel:0494220934">0494-22-0934</a></dd>
@@ -114,6 +143,6 @@ try {
   </div>
 </footer>
 
-<script src="../site.js?v=20261121214751"></script>
+<script src="../site.js?v=20261122221515"></script>
 </body>
 </html>
